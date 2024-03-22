@@ -1,0 +1,78 @@
+//Christiana Ortiz
+//cortiz116@cnm.edu
+//OrtizP5 Pseudocode
+//Sprocket Order Form
+
+Classes
++abstract class Sprocket
+++Properties
++++NumItems (fully qualified)
++++NumTeeth (fully qualified)
++++Price (Read-only)
++++ItemID (Read-only)
+++Method 
++++protected abstract void Calculate()
+++++Implemented in child classes
+++Constructors
++++Parameterless
++++Three-parameter (itemID, numItems, numTeeth)
+++ToString method
++++Concatenates order number, number, teeth material, and price
+
++public class Steel Sprocket
+++Inherits from Sprocket class
+++Implements Calculate method
+++Constructors
++++Can be implemented by calling base class constructor
+++ToString
++++Calls base class ToString and adds material
+
++public class AluminumSprocket
+++Inherits from Sprocket class
+++Implements Calculate method
+++Constructors
++++Can be implemented by calling base class constructor
+++ToString
++++Calls base class ToString and adds material
+
++public class PlasticSprocket
+++Inherits from Sprocket class
+++Implements Calculate method
+++Constructors
++++Can be implemented by calling base class constructor
+++ToString
++++Calls base class ToString and adds material
+
+-public class SprocketOrder
+++List of sprockets the customer is ordering
+++Properties
++++Address
++++CustomerName
++++TotalPrice
+--Methods
+---AddItems()
+---RemoveItems()
+---private void Calculate() - calculates total price by adding Items list prices
+---ToString - Returns customer name, count of items, total price, 
+	and address if address is not null or "Local Pickup" if address is null
+--Constructors
+---Parameterless
+---4-parameter
+
+-public class Address
+--holds address
+
+SprocketOrderForm.xaml
++Allows user to enter address or Local Pickup via checkbox
+++Checkbox click hides address textboxes
+-Add button opens dialog form (SprocketForm.xaml) to add a sprocket to the order
+-Remove button opens dialog box confirming deletion and removes item
+-Update button opens dialog box allowing user to save order
+--Saves file with ToString from SprocketOrder class at top and 
+	a line for each sprocket from respective class' ToString
+
+SprocketForm.xaml
+-Opens when Add button on SprocketOrderForm is clicked
+-Allows user to enter itemID, select material from combo box, number of teeth, and number of items
+-Submit button
+-Cancel button
